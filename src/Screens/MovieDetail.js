@@ -66,6 +66,7 @@ function MovieDetail({ match: { params: { id }} }) {
                   year={detailInfo.release_date && detailInfo.release_date.substring(0, 4)}
                   runtime={detailInfo.runtime}
                   rate={detailInfo.vote_average}
+                  description={detailInfo.overview}
                 />
               </IntroduceArea>
             </>
