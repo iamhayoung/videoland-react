@@ -40,12 +40,14 @@ function Search() {
   const [movieResultNumber, setMovieResultNumber] = useState(null);
   const [tvResultNumber, setTVResultNumber] = useState(null);
   const [error, setError] = useState(null);
+  const [searchedKeyword, setSearchedKeyword] = useState(null);
   console.log(keyword)
   console.log(movies);
   console.log(tvShows);
   console.log(movieResultNumber)
   console.log(tvResultNumber)
   console.log(error)
+  console.log(searchedKeyword);
 
   function getInputText(event) {
     const { target: { value } } = event;
@@ -64,6 +66,7 @@ function Search() {
       const { data: { total_results: movieResultsNum } } = await moviesApi.search(keyword);
       const { data: { results: tvResults } } = await tvApi.search(keyword);
       const { data: { total_results: tvResultsNum } } = await tvApi.search(keyword);
+      setSearchedKeyword(keyword);
       setMovies(movieResults);
       setTVShows(tvResults);
       setMovieResultNumber(movieResultsNum);
@@ -83,11 +86,21 @@ function Search() {
       <Form onSubmit={getSearchData}>
         <Input onChange={getInputText} placeholder="Search Movies or TV Shows 🔍" />
       </Form>
-      {(isLoading) ? <Loader /> : (
+      {(isLoading) ? (
         <>
-          {movieResultNumber >= 1 && tvResultNumber >= 1 && (
-            <ResultInfo>Showing results for "{keyword}"</ResultInfo>
-          )}
+          <Helmet>
+            <title>Searching... | Videoland</title>
+          </Helmet>
+          <Loader />
+        </>
+      ) : (
+        <>
+          <Helmet>
+            <title>{`Results for "${searchedKeyword}" | Videoland`}</title>
+          </Helmet>
+          {movieResultNumber >= 1 || tvResultNumber >= 1 ? (
+            <ResultInfo>Showing results for "{searchedKeyword}"</ResultInfo>
+          ) : " "}
           {movies && movies.length > 0 &&
             <Container>
               <Section title="Movie Results">
