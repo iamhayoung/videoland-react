@@ -11,6 +11,7 @@ const Title = styled.h2`
   margin-bottom: 20px;
   font-size: 25px;
   font-weight: 600;
+  color: #fff;
 `;
 
 const Grid = styled.div`
