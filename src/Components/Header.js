@@ -77,19 +77,19 @@ function HeaderComponent({ location: { pathname } }) {
       <Header>
         <Logo>Movieland</Logo>
         <NavList>
-          <Item current={pathname === "/"}>
+          <Item current={pathname === "/" ? 1 : 0}>
             <SLink to="/">Home</SLink>
           </Item>
-          <Item current={pathname.includes("/movie")}>
+          <Item current={pathname.includes("/movie") ? 1 : 0}>
             <SLink to="/movie">Movies</SLink>
           </Item>
-          <Item current={pathname.includes("/tv")}>
+          <Item current={pathname.includes("/tv") ? 1 : 0}>
             <SLink to="/tv">TV Shows</SLink>
           </Item>
         </NavList>
         <Search>
           <SearchItem>
-            <SearchLink current={pathname === "/search"} to="/search">
+            <SearchLink current={pathname === "/search" ? 1 : 0} to="/search">
               <FontAwesomeIcon icon={faSearch} />
             </SearchLink>
           </SearchItem>
