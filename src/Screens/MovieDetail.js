@@ -4,6 +4,8 @@ import { Helmet } from "react-helmet"
 import styled from "styled-components";
 import Loader from "Components/Loader";
 import Message from "Components/Message";
+import IntroduceArea from "Components/IntroduceArea";
+import Information from "Components/Information";
 
 const Container = styled.section`
   width: 100%;
@@ -22,7 +24,7 @@ const Background = styled.div`
   background-size: cover;
   filter: blur(3px);
   opacity: 0.5;
-  z-index: 0;
+  z-index: -1;
 `;
 
 function MovieDetail({ match: { params: { id }} }) {
@@ -53,7 +55,21 @@ function MovieDetail({ match: { params: { id }} }) {
       </Helmet>
       {(isLoading) ? <Loader /> : (
         <Container>
-          <Background imgUrl={detailInfo.backdrop_path !== null ? `https://image.tmdb.org/t/p/original${detailInfo.backdrop_path}` : "#1d1d1d"} />
+          {detailInfo && detailInfo !== null && detailInfo !== undefined && (
+            <>
+              <Background imgUrl={detailInfo.backdrop_path !== null ? `https://image.tmdb.org/t/p/original${detailInfo.backdrop_path}` : "#1d1d1d"} />
+              <IntroduceArea>
+                <Information
+                  title={detailInfo.original_title}
+                  imgUrl={detailInfo.poster_path !== null ? `https://image.tmdb.org/t/p/w300${detailInfo.poster_path}` : require("../assets/noPosterSmall.png").default}
+                  genres={detailInfo.genres}
+                  year={detailInfo.release_date && detailInfo.release_date.substring(0, 4)}
+                  runtime={detailInfo.runtime}
+                  rate={detailInfo.vote_average}
+                />
+              </IntroduceArea>
+            </>
+          )}
           {error && <Message text={error} color="#e50914" />}
         </Container>
       )}
