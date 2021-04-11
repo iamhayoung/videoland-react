@@ -2,6 +2,11 @@ import React, { useState, useEffect } from "react";
 import { tvApi } from "api";
 import { Helmet } from "react-helmet"
 import Loader from "Components/Loader";
+import styled from "styled-components";
+import Section from "Components/Section";
+import Poster from "Components/Poster";
+
+const Container = styled.div``;
 
 function TV() {
   const [isLoading, setLoading] = useState(true);
@@ -37,7 +42,29 @@ function TV() {
         <title>TV Shows | Videoland</title>
       </Helmet>
       {(isLoading) ? <Loader /> : (
-        <p>TV</p>
+        <Container>
+          {// Airing Today
+            (airingTodayData) && (airingTodayData.length > 0) && (
+              <Section title="Airing Today">
+                {airingTodayData.map(show => <Poster key={show.id} id={show.id} title={show.name} imgUrl={show.poster_path} rate={show.vote_average} year={(show.first_air_date.substring(0, 4))} />)}
+              </Section>
+            )
+          }
+          {// Popular
+            (popularData) && (popularData.length > 0) && (
+              <Section title="Popular">
+                {popularData.map(show => <Poster key={show.id} id={show.id} title={show.name} imgUrl={show.poster_path} rate={show.vote_average} year={(show.first_air_date.substring(0, 4))} />)}
+              </Section>
+            )
+          }
+          {// Top Rated
+            (topRatedData) && (topRatedData.length > 0) && (
+              <Section title="Top Rated">
+                {topRatedData.map(show => <Poster key={show.id} id={show.id} title={show.name} imgUrl={show.poster_path} rate={show.vote_average} year={(show.first_air_date.substring(0, 4))} />)}
+              </Section>
+            )
+          }
+        </Container>
       )}
     </>
   )
