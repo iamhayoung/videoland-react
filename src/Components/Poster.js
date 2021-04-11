@@ -57,11 +57,11 @@ const Year = styled.p`
   color: rgba(255, 255, 255, 0.5);
 `;
 
-function Poster({ id, title, imgUrl, rate, year }) {
+function Poster({ id, title, imgUrl, rate, year, isMovie }) {
   console.log(year)
   return (
     <>
-      <Piece to={`/movie/${id}`}>
+      <Piece to={isMovie ? `/movie/${id}` : `/tv/${id}`}>
         <ImgContainer>
           <Img imgUrl={imgUrl !== null ? `https://image.tmdb.org/t/p/w300${imgUrl}` : require("../assets/noPosterSmall.png").default} />
           <Rating><Rate>{rate > 5 ? "🥰" : "🤨"}</Rate>{rate} / 10</Rating>
