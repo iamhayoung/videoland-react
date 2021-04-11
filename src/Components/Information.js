@@ -41,24 +41,35 @@ const ListItem = styled.li`
   }
 `;
 
-
 const Rate = styled.span``;
 
-function Information({ title, imgUrl, genres, year, runtime, rate }) {
-  console.log(genres)
+const Description = styled.p``;
+
+function Information({ title, imgUrl, genres, year, runtime, rate, seasons, episodes, description }) {
+  console.log(seasons)
+  console.log(episodes)
   return (
     <>
       <Poster src={imgUrl} />
       <Contents>
         <Title>{title}</Title>
-        <Genres>
-          {genres.map(genre => <Genre key={genre.id}>{genre.name}</Genre>)}
-        </Genres>
+        {genres && genres.length > 0 && (
+          <Genres>
+            {genres.map(genre => <Genre key={genre.id}>{genre.name}</Genre>)}
+          </Genres>
+        )}
+        {seasons && (
+          <List>
+            <ListItem>{seasons} Seasons</ListItem>
+            <ListItem>{episodes} Episodes</ListItem>
+          </List>
+        )}
         <List>
           <ListItem>{year}</ListItem>
           <ListItem>{runtime} min</ListItem>
         </List>
-        <Rate>{rate}</Rate>
+        <Rate>{rate} / 10</Rate>
+        <Description>{description}</Description>
       </Contents>
     </>
   )
