@@ -8,8 +8,15 @@ const Container = styled.section`
 `;
 
 const Title = styled.h2`
+  margin-bottom: 20px;
   font-size: 25px;
   font-weight: 600;
+`;
+
+const Grid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 150px);
+  grid-gap: 25px;
 `;
 
 function Section({ title, children }) {
@@ -17,7 +24,7 @@ function Section({ title, children }) {
     <>
       <Container>
         <Title>{title}</Title>
-        <p>{children}</p>
+        <Grid>{children}</Grid>
       </Container>
     </>
   )

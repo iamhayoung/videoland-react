@@ -4,6 +4,7 @@ import { Helmet } from "react-helmet"
 import Loader from "Components/Loader";
 import styled from "styled-components";
 import Section from "Components/Section";
+import Poster from "Components/Poster";
 
 const Container = styled.div``;
 
@@ -48,7 +49,9 @@ function Movie() {
           {// Now Playing
             (nowPlayingData) && (nowPlayingData.length > 0) && (
               <Section title="Now Playing">
-                <p>hogeeee</p>
+                {nowPlayingData.map(movie => (
+                  <Poster key={movie.id} title={movie.title} imgUrl={movie.poster_path} rate={movie.vote_average} />
+                ))}
               </Section>
             )
           }
@@ -56,7 +59,9 @@ function Movie() {
           {// Popular
             (popularData) && (popularData.length > 0) && (
               <Section title="Popular">
-                <p>hogeeee</p>
+                {popularData.map(movie => (
+                  <Poster key={movie.id} title={movie.title} imgUrl={movie.poster_path} rate={movie.vote_average} />
+                ))}
               </Section>
             )
           }
@@ -64,7 +69,9 @@ function Movie() {
           {// Upcoming
             (upcomingData) && (upcomingData.length > 0) && (
               <Section title="Upcoming">
-                <p>hogeeee</p>
+                {upcomingData.map(movie => (
+                  <Poster key={movie.id} title={movie.title} imgUrl={movie.poster_path} rate={movie.vote_average} />
+                ))}
               </Section>
             )
           }
