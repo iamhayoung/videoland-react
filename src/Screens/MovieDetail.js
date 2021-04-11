@@ -10,7 +10,7 @@ function MovieDetail(props) {
   return (
     <>
       <Helmet>
-        <title>hoge | Movies | Movieland</title>
+        <title>hoge | Movies | Videoland</title>
       </Helmet>
       {(isLoading) ? <Loader /> : (
         <p>Movie detail</p>

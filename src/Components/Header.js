@@ -75,7 +75,7 @@ function HeaderComponent({ location: { pathname } }) {
   return (
     <>
       <Header>
-        <Logo>Movieland</Logo>
+        <Logo>Videoland</Logo>
         <NavList>
           <Item current={pathname === "/" ? 1 : 0}>
             <SLink to="/">Home</SLink>

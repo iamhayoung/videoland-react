@@ -41,7 +41,7 @@ function Movie() {
   return (
     <>
       <Helmet>
-        <title>Movies | Movieland</title>
+        <title>Movies | Videoland</title>
       </Helmet>
       {(isLoading) ? <Loader /> : (
         // Now Playing

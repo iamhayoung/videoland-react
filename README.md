@@ -1,3 +1,3 @@
-# Movieland-react
+# Videoland-react
 
 with React Hooks.
