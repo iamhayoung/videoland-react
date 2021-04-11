@@ -48,9 +48,9 @@ function Movie() {
         <Container>
           {// Now Playing
             (nowPlayingData) && (nowPlayingData.length > 0) && (
-              <Section title="Now Playing">
+              <Section title="Now Playing 🎬">
                 {nowPlayingData.map(movie => (
-                  <Poster key={movie.id} id={movie.id} title={movie.title} imgUrl={movie.poster_path} rate={movie.vote_average} />
+                  <Poster key={movie.id} id={movie.id} title={movie.title} imgUrl={movie.poster_path} rate={movie.vote_average} year={movie.release_date.substring(0, 4)} />
                 ))}
               </Section>
             )
@@ -58,9 +58,9 @@ function Movie() {
 
           {// Popular
             (popularData) && (popularData.length > 0) && (
-              <Section title="Popular">
+              <Section title="Popular 🏆">
                 {popularData.map(movie => (
-                  <Poster key={movie.id} id={movie.id} title={movie.title} imgUrl={movie.poster_path} rate={movie.vote_average} />
+                  <Poster key={movie.id} id={movie.id} title={movie.title} imgUrl={movie.poster_path} rate={movie.vote_average} year={movie.release_date.substring(0, 4)} />
                 ))}
               </Section>
             )
@@ -68,9 +68,9 @@ function Movie() {
 
           {// Upcoming
             (upcomingData) && (upcomingData.length > 0) && (
-              <Section title="Upcoming">
+              <Section title="Upcoming ⚡️">
                 {upcomingData.map(movie => (
-                  <Poster key={movie.id} id={movie.id} title={movie.title} imgUrl={movie.poster_path} rate={movie.vote_average} />
+                  <Poster key={movie.id} id={movie.id} title={movie.title} imgUrl={movie.poster_path} rate={movie.vote_average} year={movie.release_date.substring(0, 4)} />
                 ))}
               </Section>
             )
