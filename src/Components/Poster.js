@@ -58,7 +58,6 @@ const Year = styled.p`
 `;
 
 function Poster({ id, title, imgUrl, rate, year, isMovie }) {
-  console.log(year)
   return (
     <>
       <Piece to={isMovie ? `/movie/${id}` : `/tv/${id}`}>
