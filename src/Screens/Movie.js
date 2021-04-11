@@ -50,7 +50,7 @@ function Movie() {
             (nowPlayingData) && (nowPlayingData.length > 0) && (
               <Section title="Now Playing">
                 {nowPlayingData.map(movie => (
-                  <Poster key={movie.id} title={movie.title} imgUrl={movie.poster_path} rate={movie.vote_average} />
+                  <Poster key={movie.id} id={movie.id} title={movie.title} imgUrl={movie.poster_path} rate={movie.vote_average} />
                 ))}
               </Section>
             )
@@ -60,7 +60,7 @@ function Movie() {
             (popularData) && (popularData.length > 0) && (
               <Section title="Popular">
                 {popularData.map(movie => (
-                  <Poster key={movie.id} title={movie.title} imgUrl={movie.poster_path} rate={movie.vote_average} />
+                  <Poster key={movie.id} id={movie.id} title={movie.title} imgUrl={movie.poster_path} rate={movie.vote_average} />
                 ))}
               </Section>
             )
@@ -70,7 +70,7 @@ function Movie() {
             (upcomingData) && (upcomingData.length > 0) && (
               <Section title="Upcoming">
                 {upcomingData.map(movie => (
-                  <Poster key={movie.id} title={movie.title} imgUrl={movie.poster_path} rate={movie.vote_average} />
+                  <Poster key={movie.id} id={movie.id} title={movie.title} imgUrl={movie.poster_path} rate={movie.vote_average} />
                 ))}
               </Section>
             )
