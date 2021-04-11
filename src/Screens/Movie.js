@@ -7,7 +7,7 @@ import Section from "Components/Section";
 import Poster from "Components/Poster";
 import Message from "Components/Message";
 
-const Container = styled.div``;
+const Container = styled.section``;
 
 function Movie() {
   const [isLoading, setLoading] = useState(true);
@@ -46,7 +46,6 @@ function Movie() {
         <title>Movies | Videoland</title>
       </Helmet>
       {(isLoading) ? <Loader /> : (
-        // Now Playing
         <Container>
           {// Now Playing
             (nowPlayingData) && (nowPlayingData.length > 0) && (

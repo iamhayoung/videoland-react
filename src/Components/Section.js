@@ -2,6 +2,8 @@ import React from "react";
 import styled from "styled-components";
 
 const Container = styled.section`
+  padding: 30px;
+
   &:not(:last-child) {
     margin-bottom: 70px;
   }

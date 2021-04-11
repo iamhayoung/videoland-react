@@ -8,7 +8,7 @@ const Header = styled.header`
   width: 100%;
   height: 60px;
   padding: 0 0 0 30px;
-  position: fixed;
+  position: sticky;
   top: 0;
   left: 0;
   display: flex;

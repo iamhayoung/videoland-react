@@ -17,8 +17,6 @@ const GlobalStyles = createGlobalStyle`
   body {
     font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
     Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    margin-top: 60px;
-    padding: 30px;
     background: #1d1d1d;
   };
 `
