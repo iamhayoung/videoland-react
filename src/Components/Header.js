@@ -18,8 +18,12 @@ const Header = styled.header`
   z-index: 10;
 `;
 
-const Logo = styled.div`
+const Logo = styled(Link)`
+  display: flex;
+  align-items: center;
+  justify-content: center;
   flex: none;
+  height: 60px;
   margin-right: 40px;
   color: #e50914;
   font-size: 20px;
@@ -75,7 +79,7 @@ function HeaderComponent({ location: { pathname } }) {
   return (
     <>
       <Header>
-        <Logo>Videoland</Logo>
+        <Logo to="/">Videoland</Logo>
         <NavList>
           <Item current={pathname === "/" ? 1 : 0}>
             <SLink to="/">Home</SLink>
