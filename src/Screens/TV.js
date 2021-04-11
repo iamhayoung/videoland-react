@@ -45,21 +45,21 @@ function TV() {
         <Container>
           {// Airing Today
             (airingTodayData) && (airingTodayData.length > 0) && (
-              <Section title="Airing Today">
+              <Section title="Airing Today 📡">
                 {airingTodayData.map(show => <Poster key={show.id} id={show.id} title={show.name} imgUrl={show.poster_path} rate={show.vote_average} year={show.first_air_date && show.first_air_date.substring(0, 4)} isMovie={false} />)}
               </Section>
             )
           }
           {// Popular
             (popularData) && (popularData.length > 0) && (
-              <Section title="Popular">
+              <Section title="Popular 🔥">
                 {popularData.map(show => <Poster key={show.id} id={show.id} title={show.name} imgUrl={show.poster_path} rate={show.vote_average} year={show.first_air_date && show.first_air_date.substring(0, 4)} isMovie={false} />)}
               </Section>
             )
           }
           {// Top Rated
             (topRatedData) && (topRatedData.length > 0) && (
-              <Section title="Top Rated">
+              <Section title="Top Rated 🌈">
                 {topRatedData.map(show => <Poster key={show.id} id={show.id} title={show.name} imgUrl={show.poster_path} rate={show.vote_average} year={show.first_air_date && show.first_air_date.substring(0, 4)} isMovie={false} />)}
               </Section>
             )
