@@ -48,12 +48,16 @@ function Search() {
   console.log(error)
 
   function getInputText(event) {
-    const { target: { value } }= event;
+    const { target: { value } } = event;
     setKeyword(value);
   }
 
   async function getSearchData(event) {
     event.preventDefault();
+    if (!keyword) {
+      return
+    }
+
     try {
       setLoading(true);
       const { data: { results: movieResults } } = await moviesApi.search(keyword);
