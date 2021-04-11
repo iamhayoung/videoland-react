@@ -1,15 +1,101 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
+import styled from "styled-components";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faSearch } from "@fortawesome/free-solid-svg-icons"
 
-function Header() {
+const Header = styled.header`
+  width: 100%;
+  height: 60px;
+  padding: 0 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  color: #fff;
+  background-color: rgba(20, 20, 20, 0.9);
+  z-index: 10;
+`;
+
+const Logo = styled.div`
+  flex: none;
+  margin-right: 40px;
+  color: #e50914;
+  font-size: 20px;
+  font-weight: 900;
+  font-style: italic;
+  text-shadow: 2px 2px #fff;
+  text-align: center;
+`;
+
+const NavList = styled.ul`
+  display: flex;
+  flex: none;
+`;
+
+const Item = styled.li`
+  width: 90px;
+  height: 60px;
+  text-align: center;
+  font-weight: ${props => props.current ? 600 : 300};
+  border-bottom: 3px solid ${props => props.current ? "#e50914" : "transparent"};
+  transition: .3s ease-in-out;
+`;
+
+const SLink = styled(Link)`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 60px;
+`;
+
+const Search = styled.div`
+  flex: none;
+  margin-left: auto;
+  height: 60px;
+`;
+
+const SearchItem = styled.div`
+`;
+
+const SearchLink = styled(Link)`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 60px;
+  padding: 0 20px;
+  font-weight: ${props => props.current ? 600 : 300};
+  border-bottom: 3px solid ${props => props.current ? "#e50914" : "transparent"};
+  transition: .3s ease-in-out;
+`;
+
+function HeaderComponent({ location: { pathname } }) {
   return (
     <>
-      <Link to="/">Home</Link>
-      <Link to="/movie">Movies</Link>
-      <Link to="/tv">TV Shows</Link>
-      <Link to="/search">Search</Link>
+      <Header>
+        <Logo>Movieland</Logo>
+        <NavList>
+          <Item current={pathname === "/"}>
+            <SLink to="/">Home</SLink>
+          </Item>
+          <Item current={pathname.includes("/movie")}>
+            <SLink to="/movie">Movies</SLink>
+          </Item>
+          <Item current={pathname.includes("/tv")}>
+            <SLink to="/tv">TV Shows</SLink>
+          </Item>
+        </NavList>
+        <Search>
+          <SearchItem>
+            <SearchLink current={pathname === "/search"} to="/search">
+              <FontAwesomeIcon icon={faSearch} />
+            </SearchLink>
+          </SearchItem>
+        </Search>
+      </Header>
     </>
   )
 }
 
-export default Header;
+export default withRouter(HeaderComponent);
