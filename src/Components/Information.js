@@ -11,9 +11,16 @@ const Title = styled.h3`
   font-size: 30px;
 `;
 
-const Genres = styled.span`
+const Genres = styled.ul`
+  display: flex;
+`;
+
+const Genre = styled.li`
   position: relative;
-  margin-right: 16px;
+
+  & + & {
+    margin-left: 16px;
+  }
 
   & + &:before {
     position: absolute;
@@ -22,6 +29,21 @@ const Genres = styled.span`
   }
 `;
 
+const List = styled.ul`
+  display: flex;
+`;
+
+const ListItem = styled.li`
+  position: relative;
+
+  & + & {
+    margin-left: 16px;
+  }
+`;
+
+
+const Rate = styled.span``;
+
 function Information({ title, imgUrl, genres, year, runtime, rate }) {
   console.log(genres)
   return (
@@ -29,10 +51,14 @@ function Information({ title, imgUrl, genres, year, runtime, rate }) {
       <Poster src={imgUrl} />
       <Contents>
         <Title>{title}</Title>
-        {genres.map(gen => <Genres>{gen.name}</Genres>)}
-        <p>{year}</p>
-        <p>{runtime}</p>
-        <p>{rate}</p>
+        <Genres>
+          {genres.map(genre => <Genre>{genre.name}</Genre>)}
+        </Genres>
+        <List>
+          <ListItem>{year}</ListItem>
+          <ListItem>{runtime} min</ListItem>
+        </List>
+        <Rate>{rate}</Rate>
       </Contents>
     </>
   )
