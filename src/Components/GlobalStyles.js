@@ -19,7 +19,7 @@ const GlobalStyles = createGlobalStyle`
     Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     margin-top: 60px;
     padding: 30px;
-    background: #000;
+    background: #1d1d1d;
   };
 `
 
