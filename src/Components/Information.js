@@ -52,7 +52,7 @@ function Information({ title, imgUrl, genres, year, runtime, rate }) {
       <Contents>
         <Title>{title}</Title>
         <Genres>
-          {genres.map(genre => <Genre>{genre.name}</Genre>)}
+          {genres.map(genre => <Genre key={genre.id}>{genre.name}</Genre>)}
         </Genres>
         <List>
           <ListItem>{year}</ListItem>
