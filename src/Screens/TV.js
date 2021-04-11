@@ -5,6 +5,7 @@ import Loader from "Components/Loader";
 import styled from "styled-components";
 import Section from "Components/Section";
 import Poster from "Components/Poster";
+import Message from "Components/Message";
 
 const Container = styled.div``;
 
@@ -13,6 +14,7 @@ function TV() {
   const [airingTodayData, setAiringToday] = useState([]);
   const [popularData, setPopular] = useState([]);
   const [topRatedData, setTopRated] = useState([]);
+  const [error, setError] = useState(null);
   console.log(airingTodayData);
   console.log(popularData);
   console.log(topRatedData);
@@ -29,8 +31,8 @@ function TV() {
   useEffect(() => {
     try {
       getTVData()
-    } catch (error) {
-      console.error(error)
+    } catch {
+      setError("Can't find results.")
     } finally {
       setLoading(false);
     }
@@ -64,6 +66,8 @@ function TV() {
               </Section>
             )
           }
+
+          {error && <Message text={error} color="#e50914" />}
         </Container>
       )}
     </>

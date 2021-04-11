@@ -5,6 +5,7 @@ import Loader from "Components/Loader";
 import styled from "styled-components";
 import Section from "Components/Section";
 import Poster from "Components/Poster";
+import Message from "Components/Message";
 
 const Container = styled.div``;
 
@@ -13,6 +14,7 @@ function Movie() {
   const [nowPlayingData, setNowPlaying] = useState([]);
   const [popularData, setPopular] = useState([]);
   const [upcomingData, setUpcoming] = useState([]);
+  const [error, setError] = useState(null);
   console.log(nowPlayingData)
   console.log(popularData)
   console.log(upcomingData)
@@ -31,8 +33,8 @@ function Movie() {
   useEffect(() => {
     try {
       getMoviesData()
-    } catch (error) {
-      console.error(error)
+    } catch {
+      setError("Can't find results.")
     } finally {
       setLoading(false);
     }
@@ -75,6 +77,8 @@ function Movie() {
               </Section>
             )
           }
+
+          {error && <Message text={error} color="#e50914" />}
         </Container>
       )}
     </>
