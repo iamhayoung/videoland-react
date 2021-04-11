@@ -14,8 +14,8 @@ function Sitemap() {
       <Header />
       <Switch>
         <Route path="/" exact component={Home} />
-        <Route path="/movie" component={Movie} />
-        <Route path="/tv" component={TV} />
+        <Route path="/movie" exact component={Movie} />
+        <Route path="/tv" exact component={TV} />
         <Route path="/search" component={Search} />
         <Route path="/movie/:id" component={MovieDetail} />
         <Route path="/tv/:id" component={TVDetail} />
