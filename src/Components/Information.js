@@ -4,15 +4,15 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faImdb } from "@fortawesome/free-brands-svg-icons"
 
 const Poster = styled.img`
-  max-width: 35%;
   width: 100%;
+  grid-column: 1 / 2;
+  grid-row: 1 / 3;
 `;
 
 const Contents = styled.div`
-  max-width: 65%;
   width: 100%;
-  margin-left: 50px;
-  flex: 0 1 auto;
+  grid-column: 2 / 3;
+  grid-row: 1 / 2;
 `;
 
 const TitleAndRate = styled.div`
