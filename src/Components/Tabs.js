@@ -27,6 +27,7 @@ const TabText = styled.div`
   height: 100%;
   padding: 10px;
   text-transform: uppercase;
+  font-weight: ${props => props.active ? 600 : 400};
   color: ${props => props.active ? "#fff" : "#797979"};
   border-bottom: 3px solid ${props => props.active ? "#e50914" : "transparent"};
   transition: .3s ease-in-out;
