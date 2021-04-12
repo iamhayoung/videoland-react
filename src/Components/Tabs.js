@@ -1,37 +1,58 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
+import VideosTab from "Components/VideosTab";
 
 const Container = styled.div``;
 
-function Tabs({ videos, companies, countries }) {
+const TabBtnGroup = styled.ul`
+  display: flex;
+`;
+const TabBtn = styled.li`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 60px;
+  padding: 10px;
+  background: #000;
+  text-align: center;
+  cursor: pointer;
+`;
+const TabContents = styled.div`
+  padding: 30px;
+  background: #000;
+`;
+
+function Tabs({ videos, companies, countries, seasons, episodes }) {
   const [tabs, setTabs] = useState([{ tabTitle: null, tabContent: null }]);
-  const [contents, setContents] = useState(null);
+  const [tabIndex, setTabIndex] = useState(0);
+
   console.log(tabs)
-  console.log(videos)
+  console.log(tabIndex)
   console.log(companies)
   console.log(countries)
 
-  function tabClick(event) {
-    console.log(event.target)
-    console.log("click")
+  function clickTab(index) {
+    setTabIndex(index)
   }
 
   useEffect(() => {
-    setTabs([{ tabTitle: "Trailers", tabContent: videos.map(video => video.key) }]);
-    setTabs(prevTabs => [ ...prevTabs, {tabTitle: "Production Companies", tabContent: companies.map(company => company.name) }]);
-    setTabs(prevTabs => [...prevTabs, {tabTitle: "Production Countries", tabContent: countries.map(country => country.name)}]);
+    setTabs([{ tabTitle: "Trailers", tabContent: <VideosTab videos={videos} /> }]);
+    setTabs(prevTabs => [ ...prevTabs, {tabTitle: "Production Companies", tabContent: 2 }]);
+    setTabs(prevTabs => [...prevTabs, {tabTitle: "Production Countries", tabContent: 3 }]);
   }, [])
 
   return (
     <Container>
-      {tabs.map(tab => (
-        <>
-          <button onClick={tabClick}>{tab.tabTitle}</button>
-          <div>
-            {/* {tab.tabContent.map(cont => cont)} */}
-          </div>
-        </>
-      ))}
+      <TabBtnGroup>
+      <>
+        {tabs.map((tab, index) => (
+          <TabBtn onClick={() => clickTab(index)}>{tab.tabTitle}</TabBtn>
+        ))}
+      </>
+      </TabBtnGroup>
+      <TabContents>
+        {tabs[tabIndex].tabContent}
+      </TabContents>
     </Container>
   )
 }
