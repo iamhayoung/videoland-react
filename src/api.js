@@ -21,7 +21,8 @@ export const moviesApi = {
     params: {
       query: encodeURIComponent(text)
     }
-  })
+  }),
+  trending: () => api.get("trending/movie/day")
 }
 
 export const tvApi = {
