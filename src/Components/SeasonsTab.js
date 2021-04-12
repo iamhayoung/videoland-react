@@ -3,8 +3,8 @@ import styled from "styled-components";
 
 const Container = styled.div`
   display: grid;
-  grid-template-columns: repeat(5, 125px);
-  gap: 25px calc((100% - 625px) / 4);
+  grid-template-columns: repeat(auto-fit, minmax(125px, 1fr));
+  grid-gap: 25px;
 `;
 
 const Item = styled.div`
@@ -17,7 +17,7 @@ const Image = styled.div`
 
 const Poster = styled.div`
   background-image: url(${props => props.imgUrl});
-  height: 180px;
+  height: 220px;
   background-size: cover;
   background-position: center;
 `;
