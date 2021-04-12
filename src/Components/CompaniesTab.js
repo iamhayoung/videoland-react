@@ -8,23 +8,31 @@ const Container = styled.div`
 `;
 
 const Item = styled.div`
-  display: grid;
-  grid-template-columns: 1fr;
 `;
 
 const Image = styled.div`
-  margin-bottom: 10px;
-  align-self: end;
+  position: relative;
+  width: 200px;
+  height: 200px;
 `;
 
 const Logo = styled.img`
+  max-height: 100%;
+  max-width: 100%;
+  width: auto;
+  height: auto;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
 `;
 
 const Name = styled.p`
-  margin-top: 5px;
+  margin-top: 10px;
   font-weight: 300;
   text-align: center;
-  align-self: end;
 `;
 
 const Message = styled.p``;
