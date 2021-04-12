@@ -84,8 +84,6 @@ const Description = styled.p`
 `;
 
 function Information({ title, imgUrl, genres, year, runtime, rate, seasons, episodes, description, imdb }) {
-  console.log(seasons)
-  console.log(episodes)
   return (
     <>
       <Poster src={imgUrl} />
