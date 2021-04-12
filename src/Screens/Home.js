@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { moviesApi } from "api";
 import { Helmet } from "react-helmet"
+import { Link } from "react-router-dom";
 import Loader from "Components/Loader";
 import Slider from "react-slick";
 import styled from "styled-components";
@@ -31,12 +32,15 @@ const StyledSlider = styled(Slider)`
   }
 
   .slick-dots {
-    bottom: 50px;
+    bottom: 35px;
   }
 `;
 
 const Slide = styled.div`
   position: relative;
+  width: 100vw;
+  height: calc(100vh - 150px);
+  padding: 50px;
 `;
 
 const Background = styled.div`
@@ -64,14 +68,34 @@ const Contents = styled.div`
 `;
 
 const Subtitle = styled.h3`
-  margin-bottom: 10px;
+  margin-bottom: 15px;
+  font-size: 18px;
+  font-weight: 300;
   text-transform: uppercase;
   color: #fff;
 `;
 
 const MovieTitle = styled.h2`
-  font-size: 70px;
+  margin-bottom: 20px;
+  font-size: 54px;
+  color: #e50914;
+  font-weight: 900;
+  text-shadow: 2px 2px #fff;
+`;
+
+const ViewDetailBtn = styled(Link)`
+  display: block;
+  padding: 15px 30px;
+  background: #e50914;
   color: #fff;
+  font-weight: 600;
+  border-radius: 30px;
+  transition: .3s linear;
+
+  &:hover {
+    background: #fff;
+    color: #e50914;
+  }
 `;
 
 function Home() {
@@ -110,13 +134,14 @@ function Home() {
       {(isLoading) ? <Loader /> : (
         <Container>
             <StyledSlider {...settings}>
-            {trendingData.map(item => (
+            {trendingData.map((item, index) => (
               <>
                 <Slide key={item.id}>
                   <Background imgUrl={item.backdrop_path !== null ? `https://image.tmdb.org/t/p/original${item.backdrop_path}` : "#1d1d1d"} />
                   <Contents>
-                    <Subtitle>Today's special movie</Subtitle>
+                    <Subtitle>Today's special movie {index + 1}</Subtitle>
                     <MovieTitle>{item.title}</MovieTitle>
+                    <ViewDetailBtn to={`/movie/${item.id}`}>View detail</ViewDetailBtn>
                   </Contents>
                 </Slide>
               </>
