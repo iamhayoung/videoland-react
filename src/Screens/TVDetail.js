@@ -71,7 +71,11 @@ function TVDetail({ match: { params: { id }} }) {
                   episodes={detailInfo.number_of_episodes}
                   description={detailInfo.overview}
                 />
-                <Tabs />
+                <Tabs
+                  videos={detailInfo.videos && detailInfo.videos.results.length > 0 && detailInfo.videos.results}
+                  companies={detailInfo.production_companies && detailInfo.production_companies.length > 0 && detailInfo.production_companies}
+                  countries={detailInfo.production_countries && detailInfo.production_countries.length > 0 && detailInfo.production_countries}
+                />
               </IntroduceArea>
             </>
           )}
