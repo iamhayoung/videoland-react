@@ -6,6 +6,7 @@ import Loader from "Components/Loader";
 import Message from "Components/Message";
 import IntroduceArea from "Components/IntroduceArea";
 import Information from "Components/Information";
+import Tabs from "Components/Tabs";
 
 const Container = styled.section`
   width: 100%;
@@ -70,6 +71,7 @@ function TVDetail({ match: { params: { id }} }) {
                   episodes={detailInfo.number_of_episodes}
                   description={detailInfo.overview}
                 />
+                <Tabs />
               </IntroduceArea>
             </>
           )}

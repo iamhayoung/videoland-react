@@ -6,6 +6,7 @@ import Loader from "Components/Loader";
 import Message from "Components/Message";
 import IntroduceArea from "Components/IntroduceArea";
 import Information from "Components/Information";
+import Tabs from "Components/Tabs";
 
 const Container = styled.section`
   width: 100%;
@@ -69,6 +70,7 @@ function MovieDetail({ match: { params: { id }} }) {
                   description={detailInfo.overview}
                   imdb={detailInfo.imdb_id}
                 />
+                <Tabs />
               </IntroduceArea>
             </>
           )}
