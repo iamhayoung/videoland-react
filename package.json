@@ -33,6 +33,7 @@
       "react-app/jest"
     ]
   },
+  "homepage": "https://heuristic-nightingale-9e7902.netlify.com",
   "browserslist": {
     "production": [
       ">0.2%",
