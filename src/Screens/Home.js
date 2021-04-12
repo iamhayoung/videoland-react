@@ -2,6 +2,9 @@ import React, { useState, useEffect } from "react";
 import { moviesApi } from "api";
 import { Helmet } from "react-helmet"
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faChevronRight } from "@fortawesome/free-solid-svg-icons"
+import { faChevronLeft } from "@fortawesome/free-solid-svg-icons"
 import Loader from "Components/Loader";
 import Slider from "react-slick";
 import styled from "styled-components";
@@ -24,15 +27,71 @@ const StyledSlider = styled(Slider)`
   .slick-prev {
     left: 0;
     z-index: 1;
+
+    &:before {
+      display: none;
+    }
   }
 
   .slick-next {
     right: 0;
     z-index: 1;
+
+    &:before {
+      display: none;
+    }
   }
 
   .slick-dots {
     bottom: 35px;
+  }
+
+  .slick-arrow-icon-left,
+  .slick-arrow-icon-right {
+    position: absolute;
+    display: block;
+    width: 30px;
+    height: 30px;
+    top: 0;
+    cursor: pointer;
+    background: transparent;
+    color: #fff;
+    padding: 0;
+    border: none;
+    outline: none;
+    transition: .3s ease-in-out;
+    &:hover,
+    &:focus {
+      outline: none;
+      background: transparent;
+      opacity: 0.5;
+      font-size: 40px;
+      &::before {
+        opacity: 1;
+      }
+    }
+  }
+
+  .slick-arrow-icon-left {
+    left: 30px;
+    [dir="rtl"] & {
+      left: auto;
+      right: 30px;
+    }
+  }
+
+  .slick-arrow-icon-right {
+    right: 30px;
+    [dir="rtl"] & {
+      left: 30px;
+      right: auto;
+    }
+  }
+
+  .slick-dots li button {
+    &:before {
+      color: #fff;
+    }
   }
 `;
 
@@ -40,7 +99,7 @@ const Slide = styled.div`
   position: relative;
   width: 100vw;
   height: calc(100vh - 150px);
-  padding: 50px;
+  padding: 50px 100px;
 `;
 
 const Background = styled.div`
@@ -80,7 +139,7 @@ const MovieTitle = styled.h2`
   font-size: 54px;
   color: #e50914;
   font-weight: 900;
-  text-shadow: 2px 2px #fff;
+  text-shadow: 2px 2px 0px #fff, 6px 6px 0px rgb(54 54 54 / 50%);
 `;
 
 const ViewDetailBtn = styled(Link)`
@@ -119,11 +178,40 @@ function Home() {
     }
   }, [])
 
+  function NextArrow(props) {
+    const { className, style, onClick } = props;
+    return (
+      <div
+        className={className}
+        style={{ ...style, display: "block" }}
+        onClick={onClick}
+      >
+        <FontAwesomeIcon icon={faChevronRight} size="3x" className="slick-arrow-icon-right" />
+      </div>
+    );
+  }
+
+  function PrevArrow(props) {
+    const { className, style, onClick } = props;
+    return (
+      <div
+        className={className}
+        style={{ ...style, display: "block" }}
+        onClick={onClick}
+      >
+        <FontAwesomeIcon icon={faChevronLeft} size="3x" className="slick-arrow-icon-left" />
+      </div>
+    );
+  }
+
   const settings = {
     dots: true,
     infinite: true,
-    speed: 500,
-    slidesToShow: 1
+    speed: 600,
+    slidesToShow: 1,
+    autoplay: true,
+    nextArrow: <NextArrow />,
+    prevArrow: <PrevArrow />
   }
 
   return (
@@ -141,7 +229,7 @@ function Home() {
                   <Contents>
                     <Subtitle>Today's special movie {index + 1}</Subtitle>
                     <MovieTitle>{item.title}</MovieTitle>
-                    <ViewDetailBtn to={`/movie/${item.id}`}>View detail</ViewDetailBtn>
+                    <ViewDetailBtn to={`/movie/${item.id}`}>View detail →</ViewDetailBtn>
                   </Contents>
                 </Slide>
               </>
