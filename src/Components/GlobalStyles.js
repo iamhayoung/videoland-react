@@ -1,5 +1,7 @@
 import { createGlobalStyle } from 'styled-components';
 import reset from 'styled-reset';
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 const GlobalStyles = createGlobalStyle`
   @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;600&display=swap');
