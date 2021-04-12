@@ -18,7 +18,7 @@ const Title = styled.h2`
 
 const Grid = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fill, 150px);
+  grid-template-columns: repeat(auto-fit, minmax(125px, 1fr));
   grid-gap: 25px;
 `;
 
