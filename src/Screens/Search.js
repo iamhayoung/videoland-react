@@ -19,7 +19,10 @@ const Container = styled.section`
   }
 `;
 
-const Form = styled.form``;
+const Form = styled.form`
+  margin-top: 30px;
+`;
+
 const Input = styled.input`
   width: 100%;
   background: #1d1d1d;
