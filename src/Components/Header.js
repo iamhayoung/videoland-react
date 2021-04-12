@@ -7,7 +7,7 @@ import { faSearch } from "@fortawesome/free-solid-svg-icons"
 const Header = styled.header`
   width: 100%;
   height: 60px;
-  padding: 0 0 0 30px;
+  padding: 0 0 0 50px;
   position: sticky;
   top: 0;
   left: 0;
@@ -61,6 +61,7 @@ const Search = styled.div`
 `;
 
 const SearchItem = styled.div`
+  padding: 0 20px;
 `;
 
 const SearchLink = styled(Link)`
