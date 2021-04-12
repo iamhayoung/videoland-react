@@ -62,7 +62,7 @@ function MovieDetail({ match: { params: { id }} }) {
               <IntroduceArea>
                 <Information
                   title={detailInfo.title}
-                  imgUrl={detailInfo.poster_path !== null ? `https://image.tmdb.org/t/p/original${detailInfo.poster_path}` : require("../assets/noPosterSmall.png").default}
+                  imgUrl={detailInfo.poster_path !== null ? `https://image.tmdb.org/t/p/original${detailInfo.poster_path}` : require("../assets/noPoster.png").default}
                   genres={detailInfo.genres}
                   year={detailInfo.release_date && detailInfo.release_date.substring(0, 4)}
                   runtime={detailInfo.runtime}

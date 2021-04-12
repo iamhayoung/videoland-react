@@ -62,7 +62,7 @@ function TVDetail({ match: { params: { id }} }) {
               <IntroduceArea>
                 <Information
                   title={detailInfo.name}
-                  imgUrl={detailInfo.poster_path !== null ? `https://image.tmdb.org/t/p/original${detailInfo.poster_path}` : require("../assets/noPosterSmall.png").default}
+                  imgUrl={detailInfo.poster_path !== null ? `https://image.tmdb.org/t/p/original${detailInfo.poster_path}` : require("../assets/noPoster.png").default}
                   genres={detailInfo.genres}
                   year={detailInfo.first_air_date && detailInfo.first_air_date.substring(0, 4)}
                   runtime={detailInfo.episode_run_time[0]}

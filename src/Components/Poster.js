@@ -62,7 +62,7 @@ function Poster({ id, title, imgUrl, rate, year, isMovie }) {
     <>
       <Piece to={isMovie ? `/movie/${id}` : `/tv/${id}`}>
         <ImgContainer>
-          <Img imgUrl={imgUrl !== null ? `https://image.tmdb.org/t/p/w300${imgUrl}` : require("../assets/noPosterSmall.png").default} />
+          <Img imgUrl={imgUrl !== null ? `https://image.tmdb.org/t/p/w300${imgUrl}` : require("../assets/noPoster.png").default} />
           <Rating><Rate>{rate > 5 ? "🥰" : "🤨"}</Rate>{rate} / 10</Rating>
         </ImgContainer>
         <Title>{title}</Title>
