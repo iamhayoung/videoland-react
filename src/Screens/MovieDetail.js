@@ -67,6 +67,7 @@ function MovieDetail({ match: { params: { id }} }) {
                   runtime={detailInfo.runtime}
                   rate={detailInfo.vote_average}
                   description={detailInfo.overview}
+                  imdb={detailInfo.imdb_id}
                 />
               </IntroduceArea>
             </>

@@ -1,5 +1,7 @@
 import React from "react";
 import styled from "styled-components";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faImdb } from "@fortawesome/free-brands-svg-icons"
 
 const Poster = styled.img`
   max-width: 35%;
@@ -64,6 +66,13 @@ const Genre = styled.li`
   }
 `;
 
+const Imdb = styled.a`
+  display: flex;
+  align-items: center;
+  font-size: 30px;
+  color: rgb(245, 197, 24);
+`;
+
 const Description = styled.p`
   display: -webkit-box;
   overflow : hidden;
@@ -74,7 +83,7 @@ const Description = styled.p`
   line-height: 1.6;
 `;
 
-function Information({ title, imgUrl, genres, year, runtime, rate, seasons, episodes, description }) {
+function Information({ title, imgUrl, genres, year, runtime, rate, seasons, episodes, description, imdb }) {
   console.log(seasons)
   console.log(episodes)
   return (
@@ -83,6 +92,11 @@ function Information({ title, imgUrl, genres, year, runtime, rate, seasons, epis
       <Contents>
         <TitleAndRate>
           <Title>{title}</Title>
+          {imdb && imdb !== null && (
+            <>
+              <Imdb href={`https://www.imdb.com/title/${imdb}`} target="_blank"><FontAwesomeIcon icon={faImdb} /></Imdb>
+            </>
+          )}
           <Rate>{rate} ⭐️</Rate>
         </TitleAndRate>
         <Spec>
