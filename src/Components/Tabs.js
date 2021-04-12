@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import VideosTab from "Components/VideosTab";
+import CompaniesTab from "Components/CompaniesTab";
 
 const Container = styled.div``;
 
@@ -37,7 +38,7 @@ function Tabs({ videos, companies, countries, seasons, episodes }) {
 
   useEffect(() => {
     setTabs([{ tabTitle: "Trailers", tabContent: <VideosTab videos={videos} /> }]);
-    setTabs(prevTabs => [ ...prevTabs, {tabTitle: "Production Companies", tabContent: 2 }]);
+    setTabs(prevTabs => [...prevTabs, {tabTitle: "Production Companies", tabContent: <CompaniesTab companies={companies} /> }]);
     setTabs(prevTabs => [...prevTabs, {tabTitle: "Production Countries", tabContent: 3 }]);
   }, [])
 
@@ -46,7 +47,7 @@ function Tabs({ videos, companies, countries, seasons, episodes }) {
       <TabBtnGroup>
       <>
         {tabs.map((tab, index) => (
-          <TabBtn onClick={() => clickTab(index)}>{tab.tabTitle}</TabBtn>
+          <TabBtn key={index} onClick={() => clickTab(index)}>{tab.tabTitle}</TabBtn>
         ))}
       </>
       </TabBtnGroup>
