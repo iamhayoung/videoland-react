@@ -14,6 +14,7 @@ const Image = styled.div`
   position: relative;
   width: 200px;
   height: 200px;
+  background: #fff;
 `;
 
 const Logo = styled.img`
