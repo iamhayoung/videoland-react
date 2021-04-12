@@ -3,6 +3,7 @@ import styled from "styled-components";
 import VideosTab from "Components/VideosTab";
 import CompaniesTab from "Components/CompaniesTab";
 import CountriesTab from "Components/CountriesTab";
+import SeasonsTab from "Components/SeasonsTab";
 
 const Container = styled.div``;
 
@@ -36,12 +37,13 @@ const TabContents = styled.div`
   background: rgba(0, 0, 0, 0.2);
 `;
 
-function Tabs({ videos, companies, countries, seasons, episodes }) {
+function Tabs({ videos, companies, countries, seasons }) {
   const [tabs, setTabs] = useState([{ tabTitle: null, tabContent: null }]);
   const [tabIndex, setTabIndex] = useState(0);
 
   console.log(tabs)
   console.log(tabIndex)
+  console.log(seasons)
 
   function clickTab(index) {
     setTabIndex(index)
@@ -50,7 +52,11 @@ function Tabs({ videos, companies, countries, seasons, episodes }) {
   useEffect(() => {
     setTabs([{ tabTitle: "Trailers", tabContent: <VideosTab videos={videos} /> }]);
     setTabs(prevTabs => [...prevTabs, {tabTitle: "Companies", tabContent: <CompaniesTab companies={companies} /> }]);
-    setTabs(prevTabs => [...prevTabs, {tabTitle: "Countries", tabContent: <CountriesTab countries={countries} /> }]);
+    setTabs(prevTabs => [...prevTabs, { tabTitle: "Countries", tabContent: <CountriesTab countries={countries} /> }]);
+    if (seasons !== undefined) {
+      console.log("hoho")
+      setTabs(prevTabs => [...prevTabs, { tabTitle: "Seasons", tabContent: <SeasonsTab seasons={seasons} /> }]);
+    }
   }, [])
 
   return (
