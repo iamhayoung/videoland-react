@@ -30,6 +30,11 @@ const TabText = styled.div`
   color: ${props => props.active ? "#fff" : "#797979"};
   border-bottom: 3px solid ${props => props.active ? "#e50914" : "transparent"};
   transition: .3s ease-in-out;
+
+  &:hover {
+    color: #fff;
+    border-bottom: 3px solid ${props => props.active ? "#e50914" : "#7d7d7d"};
+  }
 `;
 
 const TabContents = styled.div`
