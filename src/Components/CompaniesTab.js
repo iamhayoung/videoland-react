@@ -3,8 +3,8 @@ import styled from "styled-components";
 
 const Container = styled.div`
   display: grid;
-  grid-template-columns: repeat(4, 200px);
-  gap: 25px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
 `;
 
 const Item = styled.div`
@@ -12,7 +12,6 @@ const Item = styled.div`
 
 const Image = styled.div`
   position: relative;
-  width: 200px;
   height: 200px;
   background: #fff;
 `;
