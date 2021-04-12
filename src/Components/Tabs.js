@@ -20,7 +20,7 @@ const TabBtn = styled.li`
 `;
 const TabContents = styled.div`
   padding: 30px;
-  background: #000;
+  background: rgba(0, 0, 0, 0.2);
 `;
 
 function Tabs({ videos, companies, countries, seasons, episodes }) {
