@@ -13,7 +13,6 @@ const Header = styled.header`
   left: 0;
   display: flex;
   align-items: center;
-  color: #fff;
   background-color: rgba(20, 20, 20, 0.9);
   z-index: 10;
 `;
@@ -42,9 +41,15 @@ const Item = styled.li`
   width: 90px;
   height: 60px;
   text-align: center;
+  color: ${props => props.current ? "#fff" : "#797979"};
   font-weight: ${props => props.current ? 600 : 300};
   border-bottom: 3px solid ${props => props.current ? "#e50914" : "transparent"};
   transition: .3s ease-in-out;
+
+  &:hover {
+    color: #fff;
+    border-bottom: 3px solid ${props => props.current ? "#e50914" : "#7d7d7d"};
+  }
 `;
 
 const SLink = styled(Link)`
@@ -71,9 +76,14 @@ const SearchLink = styled(Link)`
   height: 60px;
   padding: 0 30px;
   font-size: 20px;
+  color: #fff;
   font-weight: ${props => props.current ? 600 : 300};
   border-bottom: 3px solid ${props => props.current ? "#e50914" : "transparent"};
   transition: .3s ease-in-out;
+
+  &:hover {
+    border-bottom: 3px solid ${props => props.current ? "#e50914" : "#7d7d7d"};
+  }
 `;
 
 function HeaderComponent({ location: { pathname } }) {
