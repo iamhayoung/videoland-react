@@ -137,6 +137,7 @@ const Subtitle = styled.h3`
 const MovieTitle = styled.h2`
   margin-bottom: 20px;
   font-size: 54px;
+  text-align: right;
   color: #e50914;
   font-weight: 900;
   text-shadow: 2px 2px 0px #fff, 6px 6px 0px rgb(54 54 54 / 50%);
@@ -222,7 +223,10 @@ function Home() {
       {(isLoading) ? <Loader /> : (
         <Container>
             <StyledSlider {...settings}>
-            {trendingData.map((item, index) => (
+            {
+              trendingData
+                .filter((item, index) => (index >= 10))
+                .map((item, index) => (
               <>
                 <Slide key={item.id}>
                   <Background imgUrl={item.backdrop_path !== null ? `https://image.tmdb.org/t/p/original${item.backdrop_path}` : "#1d1d1d"} />
