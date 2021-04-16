@@ -37,6 +37,7 @@ const Spec = styled.div`
   display: flex;
   margin-bottom: 20px;
   color: #c3c2c2;
+  font-size: 14px;
 `;
 
 const Item = styled.span`
