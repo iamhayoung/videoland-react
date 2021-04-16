@@ -12,7 +12,6 @@ const Item = styled.div`
 
 const Name = styled.p`
   font-weight: 300;
-  text-align: center;
 `;
 
 const Message = styled.p``;
