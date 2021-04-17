@@ -4,6 +4,7 @@ import VideosTab from "Components/VideosTab";
 import CompaniesTab from "Components/CompaniesTab";
 import CountriesTab from "Components/CountriesTab";
 import SeasonsTab from "Components/SeasonsTab";
+import PropTypes from "prop-types";
 
 const Container = styled.div``;
 
@@ -47,10 +48,6 @@ function Tabs({ videos, companies, countries, seasons }) {
   const [tabs, setTabs] = useState([{ tabTitle: null, tabContent: null }]);
   const [tabIndex, setTabIndex] = useState(0);
 
-  console.log(tabs)
-  console.log(tabIndex)
-  console.log(seasons)
-
   function clickTab(index) {
     setTabIndex(index)
   }
@@ -60,7 +57,6 @@ function Tabs({ videos, companies, countries, seasons }) {
     setTabs(prevTabs => [...prevTabs, {tabTitle: "Companies", tabContent: <CompaniesTab companies={companies} /> }]);
     setTabs(prevTabs => [...prevTabs, { tabTitle: "Countries", tabContent: <CountriesTab countries={countries} /> }]);
     if (seasons !== undefined) {
-      console.log("hoho")
       setTabs(prevTabs => [...prevTabs, { tabTitle: "Seasons", tabContent: <SeasonsTab seasons={seasons} /> }]);
     }
   }, [])
@@ -82,6 +78,35 @@ function Tabs({ videos, companies, countries, seasons }) {
         {tabs[tabIndex].tabContent}
       </TabContents>
     </Container>
+  )
+}
+
+Tabs.propTypes = {
+  videos: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string,
+      key: PropTypes.string,
+      name: PropTypes.string
+    })
+  ),
+  companies: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number,
+      logo_path: PropTypes.string,
+      name: PropTypes.string
+    })
+  ),
+  countries: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string
+    })
+  ),
+  seasons: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number,
+      poster_path: PropTypes.string,
+      name: PropTypes.string
+    })
   )
 }
 
