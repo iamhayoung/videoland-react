@@ -133,7 +133,7 @@ Information.propTypes = {
       name: PropTypes.string
     })
   ),
-  year: PropTypes.string.isRequired,
+  year: PropTypes.string,
   runtime: PropTypes.number,
   rate: PropTypes.number,
   seasons: PropTypes.number,
