@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faImdb } from "@fortawesome/free-brands-svg-icons"
+import PropTypes from "prop-types";
 
 const Poster = styled.img`
   width: 100%;
@@ -121,6 +122,22 @@ function Information({ title, imgUrl, genres, year, runtime, rate, seasons, epis
       </Contents>
     </>
   )
+}
+
+Information.propTypes = {
+  title: PropTypes.string.isRequired,
+  imgUrl: PropTypes.string.isRequired,
+  genres: PropTypes.shape({
+      id: PropTypes.number,
+      name: PropTypes.string
+    }),
+  year: PropTypes.string.isRequired,
+  runtime: PropTypes.number,
+  rate: PropTypes.number,
+  seasons: PropTypes.number,
+  episodes: PropTypes.number,
+  description: PropTypes.string,
+  imdb: PropTypes.string
 }
 
 export default Information;
