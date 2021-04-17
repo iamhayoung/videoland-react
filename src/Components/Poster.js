@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import PropTypes from "prop-types";
 
 const Piece = styled(Link)`
   display: block;
@@ -70,6 +71,15 @@ function Poster({ id, title, imgUrl, rate, year, isMovie }) {
       </Piece>
     </>
   )
+}
+
+Poster.propTypes = {
+  id: PropTypes.number.isRequired,
+  title: PropTypes.string.isRequired,
+  imgUrl: PropTypes.string,
+  rate: PropTypes.number.isRequired,
+  year: PropTypes.string,
+  isMovie: PropTypes.bool.isRequired
 }
 
 export default Poster;
