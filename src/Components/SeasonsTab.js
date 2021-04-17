@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import PropTypes from "prop-types";
 
 const Container = styled.div`
   display: grid;
@@ -47,6 +48,16 @@ function Season({ seasons }) {
         : (<Message>No data😢</Message>)
       }
     </Container>
+  )
+}
+
+Season.propTypes = {
+  season: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number,
+      poster_path: PropTypes.string,
+      name: PropTypes.string
+    })
   )
 }
 
