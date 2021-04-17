@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import PropTypes from "prop-types";
 
 const Container = styled.div`
   display: grid;
@@ -37,6 +38,16 @@ function Video({ videos }) {
       }
     </Container>
   )
+}
+
+Video.propTypes = {
+  videos: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string,
+      key: PropTypes.string,
+      name: PropTypes.string
+    })
+  ),
 }
 
 export default Video;
