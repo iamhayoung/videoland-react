@@ -127,10 +127,12 @@ function Information({ title, imgUrl, genres, year, runtime, rate, seasons, epis
 Information.propTypes = {
   title: PropTypes.string.isRequired,
   imgUrl: PropTypes.string.isRequired,
-  genres: PropTypes.shape({
+  genres: PropTypes.arrayOf(
+    PropTypes.shape({
       id: PropTypes.number,
       name: PropTypes.string
-    }),
+    })
+  ),
   year: PropTypes.string.isRequired,
   runtime: PropTypes.number,
   rate: PropTypes.number,
