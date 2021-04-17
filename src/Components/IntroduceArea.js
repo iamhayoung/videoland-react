@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import PropTypes from "prop-types";
 
 const Container = styled.div`
   display: grid;
@@ -10,11 +11,19 @@ const Container = styled.div`
 `;
 
 function IntroduceArea({ children }) {
+  console.log(children)
   return (
     <Container>
       {children}
     </Container>
   )
+}
+
+IntroduceArea.propTypes = {
+  children: PropTypes.oneOfType([
+        PropTypes.arrayOf(PropTypes.node),
+        PropTypes.node
+    ])
 }
 
 export default IntroduceArea;
