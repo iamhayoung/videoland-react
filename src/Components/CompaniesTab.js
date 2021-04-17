@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import PropTypes from "prop-types";
 
 const Container = styled.div`
   display: grid;
@@ -56,6 +57,15 @@ function Company({ companies }) {
       }
     </Container>
   )
+}
+
+Company.propTypes = {
+  companies: PropTypes.arrayOf(
+    PropTypes.shape({
+      logo_path: PropTypes.string,
+      name: PropTypes.string.isRequired
+    }).isRequired
+  ).isRequired
 }
 
 export default Company;
