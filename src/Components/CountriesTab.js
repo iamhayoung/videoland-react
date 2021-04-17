@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import PropTypes from "prop-types";
 
 const Container = styled.div`
   display: grid;
@@ -16,7 +17,7 @@ const Name = styled.p`
 
 const Message = styled.p``;
 
-function Company({ countries }) {
+function Country({ countries }) {
   console.log(countries)
   return (
     <Container>
@@ -32,4 +33,12 @@ function Company({ countries }) {
   )
 }
 
-export default Company;
+Country.propTypes = {
+  countries: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string.isRequired
+    }).isRequired
+  ).isRequired
+}
+
+export default Country;
