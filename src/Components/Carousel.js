@@ -186,7 +186,6 @@ const settings = {
 }
 
 function Carousel({ trendingData }) {
-  console.log(trendingData)
   return (
     <StyledSlider {...settings}>
       {
